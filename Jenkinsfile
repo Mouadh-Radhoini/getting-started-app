@@ -123,5 +123,17 @@ pipeline {
                 }
             }
         }
+
+
+
+        stage('Nettoyage') {
+    steps {
+        dir('deploy/recette') {
+            sh 'docker compose down -v'
+        }
+    }
+}
+
+
     }
 }
