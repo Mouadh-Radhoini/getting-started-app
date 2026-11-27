@@ -28,7 +28,7 @@ services:
       MYSQL_PASSWORD: secret
 
     volumes:
-      - donnees:/var/lib/mysql
+      - donnees_v2:/var/lib/mysql
 
     healthcheck:
       test: ["CMD-SHELL", "mysql -h 127.0.0.1 -utodo -psecret todos -e 'SELECT 1'"]
@@ -37,4 +37,4 @@ services:
       retries: 20
 
 volumes:
-  donnees:
+  donnees_v2:
