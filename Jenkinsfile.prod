@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+
+    options {
+        disableConcurrentBuilds()
+    }
+
+    stages {
+        stage('Production') {
+            steps {
+                sh 'docker pull mouadhradhouani/taches:valide'
+
+                dir('deploy/prod') {
+                    sh 'docker compose up -d'
+                }
+            }
+        }
+    }
+}
